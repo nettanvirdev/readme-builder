@@ -17,7 +17,20 @@ function drop(event) {
 function updatePreview() {
     const dropzone = document.getElementById('dropzone');
     const preview = document.getElementById('preview');
-    preview.innerHTML = dropzone.innerHTML;
+    const content = dropzone.innerText;
+    
+    fetch('https://api.github.com/markdown', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: content, mode: 'gfm' }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        preview.innerHTML = data;
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 function downloadReadme() {
@@ -52,27 +65,27 @@ document.querySelectorAll('.component').forEach(component => {
 
 document.getElementById('iconSearch').addEventListener('input', function() {
     const query = this.value.toLowerCase();
-    const icons = document.querySelectorAll('.icon');
-    icons.forEach(icon => {
-        if (icon.classList.contains(query)) {
-            icon.style.display = 'block';
-        } else {
-            icon.style.display = 'none';
+    fetch(`https://api.iconfinder.com/v4/icons/search?query=${query}&count=10`, {
+        headers: {
+            'Authorization': 'Bearer YOUR_ICONFINDER_API_KEY'
         }
-    });
-});
-
-// Populate icon picker with Font Awesome icons
-const iconResults = document.getElementById('iconResults');
-const iconClasses = ['fa-solid fa-star', 'fa-solid fa-heart', 'fa-solid fa-check', 'fa-solid fa-times', 'fa-solid fa-user', 'fa-solid fa-envelope'];
-iconClasses.forEach(iconClass => {
-    const icon = document.createElement('i');
-    icon.className = `icon ${iconClass}`;
-    icon.addEventListener('click', function() {
-        const dropzone = document.getElementById('dropzone');
-        dropzone.innerHTML += `![Icon](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svg/${iconClass.split(' ')[1]}.svg)<br>`;
-        updatePreview();
-        closeIconPicker();
-    });
-    iconResults.appendChild(icon);
+    })
+    .then(response => response.json())
+    .then(data => {
+        const iconResults = document.getElementById('iconResults');
+        iconResults.innerHTML = '';
+        data.icons.forEach(icon => {
+            const iconElement = document.createElement('img');
+            iconElement.src = icon.raster_sizes[0].formats[0].preview_url;
+            iconElement.className = 'icon';
+            iconElement.addEventListener('click', function() {
+                const dropzone = document.getElementById('dropzone');
+                dropzone.innerHTML += `![Icon](${iconElement.src})<br>`;
+                updatePreview();
+                closeIconPicker();
+            });
+            iconResults.appendChild(iconElement);
+        });
+    })
+    .catch(error => console.error('Error:', error));
 });

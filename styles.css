@@ -111,7 +111,7 @@ button:hover {
     font-weight: bold;
 }
 
-.close:hover,
+close:hover,
 .close:focus {
     color: #FF6F00;
     text-decoration: none;
@@ -138,6 +138,6 @@ button:hover {
     color: #FFAB40;
 }
 
-.icon:hover {
+icon:hover {
     color: #FF6F00;
 }
