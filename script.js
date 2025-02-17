@@ -20,6 +20,7 @@ function updatePreview() {
     const preview = document.getElementById('preview');
     const content = dropzone.innerText;
     preview.innerHTML = marked.parse(content);
+    Prism.highlightAll();
 }
 
 function downloadReadme() {
@@ -72,6 +73,48 @@ function addImage() {
     const dropzone = document.getElementById('dropzone');
     dropzone.innerHTML += `![${imageAlt}](${imageUrl})<br>`;
     closeImagePopup();
+    updatePreview();
+    updateTreeView();
+}
+
+function openBadgePopup() {
+    document.getElementById('badgePopup').style.display = 'block';
+}
+
+function closeBadgePopup() {
+    document.getElementById('badgePopup').style.display = 'none';
+}
+
+function addBadge() {
+    const badgeAlt = document.getElementById('badgeAlt').value;
+    const badgeUrl = document.getElementById('badgeUrl').value;
+    const dropzone = document.getElementById('dropzone');
+    dropzone.innerHTML += `![${badgeAlt}](${badgeUrl})<br>`;
+    closeBadgePopup();
+    updatePreview();
+    updateTreeView();
+}
+
+function openFootnotePopup() {
+    document.getElementById('footnotePopup').style.display = 'block';
+}
+
+function closeFootnotePopup() {
+    document.getElementById('footnotePopup').style.display = 'none';
+}
+
+function addFootnote() {
+    const footnoteText = document.getElementById('footnoteText').value;
+    const dropzone = document.getElementById('dropzone');
+    dropzone.innerHTML += `[^${footnoteText}]<br>`;
+    closeFootnotePopup();
+    updatePreview();
+    updateTreeView();
+}
+
+function addTOC() {
+    const dropzone = document.getElementById('dropzone');
+    dropzone.innerHTML += `[TOC]<br>`;
     updatePreview();
     updateTreeView();
 }
