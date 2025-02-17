@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>README Builder</h1>
+        </header>
+        <main>
+            <section class="components">
+                <h2>Components</h2>
+                <div class="component" draggable="true" data-component="# Title"># Title</div>
+                <div class="component" draggable="true" data-component="## Subtitle">## Subtitle</div>
+                <div class="component" draggable="true" data-component="### Heading">### Heading</div>
+                <div class="component" draggable="true" data-component="- List Item">- List Item</div>
+                <div class="component" draggable="true" data-component="1. Ordered Item">1. Ordered Item</div>
+                <div class="component" draggable="true" data-component="[Link](url)">[Link](url)</div>
+                <div class="component" draggable="true" data-component="![Image](url)">![Image](url)</div>
+                <div class="component" draggable="true" data-component="```code block```">```code block```</div>
+                <div class="component" draggable="true" data-component="> Blockquote">> Blockquote</div>
+                <div class="component" draggable="true" data-component="- [ ] Task Item">- [ ] Task Item</div>
+                <div class="component" draggable="true" data-component="| Table | Header |\n| ------ | ------ |\n| Cell | Cell |">| Table | Header |\n| ------ | ------ |\n| Cell | Cell |</div>
+                <div class="component" draggable="true" data-component="---">---</div>
+                <div class="component" draggable="true" data-component="![Icon](url)" onclick="openIconPicker()">![Icon](url)</div>
+            </section>
+            <section class="editor">
+                <h2>Editor</h2>
+                <div id="dropzone" contenteditable="true" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </section>
+            <section class="preview">
+                <h2>Preview</h2>
+                <div id="preview"></div>
+            </section>
+        </main>
+        <footer>
+            <button onclick="downloadReadme()">Download README.md</button>
+        </footer>
+    </div>
+    <div id="iconPicker" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeIconPicker()">&times;</span>
+            <input type="text" id="iconSearch" placeholder="Search icons...">
+            <div id="iconResults"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

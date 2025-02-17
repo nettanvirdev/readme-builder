@@ -1,0 +1,143 @@
+body {
+    background-color: #263238;
+    color: #ECEFF1;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #FFAB40;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+section {
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    background-color: #37474F;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #FFAB40;
+}
+
+.component {
+    background-color: #546E7A;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+    cursor: grab;
+}
+
+#dropzone {
+    height: 300px;
+    border: 2px dashed #FFAB40;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#preview {
+    height: 300px;
+    border: 2px solid #FFAB40;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #263238;
+    color: #ECEFF1;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #FFAB40;
+    color: #263238;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #FF6F00;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #37474F;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.close {
+    color: #FFAB40;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #FF6F00;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#iconSearch {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #FFAB40;
+    border-radius: 3px;
+    color: #263238;
+}
+
+#iconResults {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon {
+    padding: 10px;
+    cursor: pointer;
+    color: #FFAB40;
+}
+
+.icon:hover {
+    color: #FF6F00;
+}
