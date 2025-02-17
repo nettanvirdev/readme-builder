@@ -12,6 +12,7 @@ function drop(event) {
     const dropzone = document.getElementById('dropzone');
     dropzone.innerHTML += data + "<br>";
     updatePreview();
+    updateTreeView();
 }
 
 function updatePreview() {
@@ -37,6 +38,42 @@ function downloadReadme() {
     document.body.appendChild(form);
     form.submit();
     document.body.removeChild(form);
+}
+
+function openLinkPopup() {
+    document.getElementById('linkPopup').style.display = 'block';
+}
+
+function closeLinkPopup() {
+    document.getElementById('linkPopup').style.display = 'none';
+}
+
+function addLink() {
+    const linkText = document.getElementById('linkText').value;
+    const linkUrl = document.getElementById('linkUrl').value;
+    const dropzone = document.getElementById('dropzone');
+    dropzone.innerHTML += `[${linkText}](${linkUrl})<br>`;
+    closeLinkPopup();
+    updatePreview();
+    updateTreeView();
+}
+
+function openImagePopup() {
+    document.getElementById('imagePopup').style.display = 'block';
+}
+
+function closeImagePopup() {
+    document.getElementById('imagePopup').style.display = 'none';
+}
+
+function addImage() {
+    const imageAlt = document.getElementById('imageAlt').value;
+    const imageUrl = document.getElementById('imageUrl').value;
+    const dropzone = document.getElementById('dropzone');
+    dropzone.innerHTML += `![${imageAlt}](${imageUrl})<br>`;
+    closeImagePopup();
+    updatePreview();
+    updateTreeView();
 }
 
 function openIconPicker() {
@@ -87,3 +124,22 @@ iconClasses.forEach(icon => {
 });
 
 document.getElementById('dropzone').addEventListener('input', updatePreview);
+
+function updateTreeView() {
+    const dropzone = document.getElementById('dropzone');
+    const treeView = document.getElementById('treeView');
+    const content = dropzone.innerText.split('\n');
+    treeView.innerHTML = '';
+    content.forEach(line => {
+        if (line.trim()) {
+            const node = document.createElement('div');
+            node.className = 'tree-node';
+            node.textContent = line.trim();
+            treeView.appendChild(node);
+        }
+    });
+}
+
+document.getElementById('themeToggle').addEventListener('click', function() {
+    document.body.classList.toggle('light');
+});

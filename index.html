@@ -11,6 +11,7 @@
     <div class="container">
         <header>
             <h1>README Builder</h1>
+            <button id="themeToggle">Toggle Theme</button>
         </header>
         <main>
             <section class="components">
@@ -20,8 +21,8 @@
                 <div class="component" draggable="true" data-component="### Heading">### Heading</div>
                 <div class="component" draggable="true" data-component="- List Item">- List Item</div>
                 <div class="component" draggable="true" data-component="1. Ordered Item">1. Ordered Item</div>
-                <div class="component" draggable="true" data-component="[Link](url)">[Link](url)</div>
-                <div class="component" draggable="true" data-component="![Image](url)">![Image](url)</div>
+                <div class="component" draggable="true" data-component="[Link](url)" onclick="openLinkPopup()">[Link](url)</div>
+                <div class="component" draggable="true" data-component="![Image](url)" onclick="openImagePopup()">![Image](url)</div>
                 <div class="component" draggable="true" data-component="```code block```">```code block```</div>
                 <div class="component" draggable="true" data-component="> Blockquote">> Blockquote</div>
                 <div class="component" draggable="true" data-component="- [ ] Task Item">- [ ] Task Item</div>
@@ -37,10 +38,30 @@
                 <h2>Preview</h2>
                 <div id="preview"></div>
             </section>
+            <section class="tree-view">
+                <h2>Tree View</h2>
+                <div id="treeView"></div>
+            </section>
         </main>
         <footer>
             <button onclick="downloadReadme()">Download README.md</button>
         </footer>
+    </div>
+    <div id="linkPopup" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLinkPopup()">&times;</span>
+            <input type="text" id="linkText" placeholder="Link Text">
+            <input type="text" id="linkUrl" placeholder="Link URL">
+            <button onclick="addLink()">Add Link</button>
+        </div>
+    </div>
+    <div id="imagePopup" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeImagePopup()">&times;</span>
+            <input type="text" id="imageAlt" placeholder="Image Alt Text">
+            <input type="text" id="imageUrl" placeholder="Image URL">
+            <button onclick="addImage()">Add Image</button>
+        </div>
     </div>
     <div id="iconPicker" class="modal">
         <div class="modal-content">
