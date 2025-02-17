@@ -1,7 +1,7 @@
 body {
-    background-color: #263238;
-    color: #ECEFF1;
-    font-family: 'Roboto', sans-serif;
+    background-color: #f6f8fa;
+    color: #24292e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
 }
 
@@ -21,48 +21,52 @@ header {
 }
 
 h1 {
-    color: #FFAB40;
+    color: #0366d6;
 }
 
 main {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 section {
     width: 30%;
     margin: 10px;
     padding: 20px;
-    background-color: #37474F;
-    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
 }
 
 h2 {
-    color: #FFAB40;
+    color: #0366d6;
 }
 
 .component {
-    background-color: #546E7A;
+    background-color: #f6f8fa;
     padding: 10px;
     margin: 5px 0;
+    border: 1px solid #e1e4e8;
     border-radius: 3px;
     cursor: grab;
 }
 
 #dropzone {
     height: 300px;
-    border: 2px dashed #FFAB40;
+    border: 1px dashed #0366d6;
     padding: 10px;
     overflow-y: auto;
 }
 
 #preview {
-    height: 300px;
-    border: 2px solid #FFAB40;
+    height: 600px;
+    border: 1px solid #e1e4e8;
     padding: 10px;
     overflow-y: auto;
-    background-color: #263238;
-    color: #ECEFF1;
+    background-color: #ffffff;
+    color: #24292e;
 }
 
 footer {
@@ -71,16 +75,16 @@ footer {
 }
 
 button {
-    background-color: #FFAB40;
-    color: #263238;
+    background-color: #0366d6;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 
 button:hover {
-    background-color: #FF6F00;
+    background-color: #005cc5;
 }
 
 .modal {
@@ -96,24 +100,24 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #37474F;
+    background-color: #ffffff;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #e1e4e8;
     width: 80%;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .close {
-    color: #FFAB40;
+    color: #0366d6;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-close:hover,
+.close:hover,
 .close:focus {
-    color: #FF6F00;
+    color: #005cc5;
     text-decoration: none;
     cursor: pointer;
 }
@@ -122,22 +126,23 @@ close:hover,
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #FFAB40;
-    border-radius: 3px;
-    color: #263238;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    color: #24292e;
 }
 
 #iconResults {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .icon {
     padding: 10px;
     cursor: pointer;
-    color: #FFAB40;
+    color: #0366d6;
 }
 
-icon:hover {
-    color: #FF6F00;
+.icon:hover {
+    color: #005cc5;
 }

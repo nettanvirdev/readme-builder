@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>README Builder</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="libs/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
@@ -31,7 +31,7 @@
             </section>
             <section class="editor">
                 <h2>Editor</h2>
-                <div id="dropzone" contenteditable="true" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="dropzone" contenteditable="true" oninput="updatePreview()" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </section>
             <section class="preview">
                 <h2>Preview</h2>
@@ -49,6 +49,7 @@
             <div id="iconResults"></div>
         </div>
     </div>
+    <script src="libs/marked.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
